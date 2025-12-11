@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+gem 'rails', '~> 7.1'
+gem 'pg'
+gem 'puma'
+gem 'sidekiq'
+gem 'aws-sdk-s3'
+gem 'rspec-rails'

@@ -1,0 +1,2 @@
+class AudioRequest < ApplicationRecord
+end
