@@ -227,6 +227,8 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
+    sqlite3 (2.8.1-x64-mingw-ucrt)
+    sqlite3 (2.8.1-x86_64-linux-gnu)
     stringio (3.1.9)
     thor (1.4.0)
     timeout (0.5.0)
@@ -253,6 +255,7 @@ DEPENDENCIES
   rails (~> 7.1)
   rspec-rails
   sidekiq
+  sqlite3
   tzinfo-data
 
 BUNDLED WITH
