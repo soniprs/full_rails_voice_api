@@ -59,7 +59,6 @@ Rails.application.configure do
   # ------------------------------
   # ✅ Allow Railway deployment hostnames
   # ------------------------------
-  config.hosts << "rails-production-6c48.up.railway.app"
-  config.hosts << /.*\.up\.railway\.app/
+  config.hosts << "https://rails-production-6c48.up.railway.app"
 end
 
