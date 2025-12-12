@@ -59,8 +59,7 @@ Rails.application.configure do
   # ------------------------------
   # ✅ Allow Railway deployment hostnames
   # ------------------------------
+  config.hosts << "rails-production-6c48.up.railway.app"
   config.hosts << /.*\.up\.railway\.app/
-
-  # If Railway health check conflicts, uncomment:
-  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
+
