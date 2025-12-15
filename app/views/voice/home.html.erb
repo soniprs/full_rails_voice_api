@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voice Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    textarea { width: 100%; height: 100px; }
+    button { padding: 10px 20px; margin-top: 10px; }
+    .voice { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    .status { font-weight: bold; }
+  </style>
+</head>
+
+<body>
+  <h1>🎙 Voice Generation</h1>
+
+  <textarea id="textInput" placeholder="Enter text to generate voice..."></textarea>
+  <br>
+  <button onclick="generateVoice()">Generate Voice</button>
+
+  <p id="status"></p>
+
+  <h2>History</h2>
+  <div id="history">
+    <% @voices.each do |voice| %>
+      <div class="voice">
+        <p><strong>Text:</strong> <%= voice.text %></p>
+        <p class="status">Status: <%= voice.status %></p>
+
+        <% if voice.audio_url.present? %>
+          <audio controls src="<%= voice.audio_url %>"></audio>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <script>
+    function generateVoice() {
+      const text = document.getElementById("textInput").value;
+      document.getElementById("status").innerText = "Generating...";
+
+      fetch("/generate_voice", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text: text })
+      })
+      .then(res => res.json())
+      .then(() => {
+        document.getElementById("status").innerText = "Queued. Refresh page in a few seconds.";
+      })
+      .catch(() => {
+        document.getElementById("status").innerText = "Error generating voice";
+      });
+    }
+  </script>
+</body>
+</html>

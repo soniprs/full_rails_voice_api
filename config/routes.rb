@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
- post 'generate_voice', to: 'generate_voice#create'
+  root 'voice#home'
+
+  post '/generate_voice', to: 'voice#generate'
+  get '/voices', to: 'voice#index'
 end
