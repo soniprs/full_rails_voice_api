@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '~> 7.1'
+gem 'rails', '~> 8.1'
 gem 'pg'
 gem 'puma'
 gem 'sidekiq'
